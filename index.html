@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web3 Customer Success Specialist | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #2d1b69 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(120, 119, 198, 0.3) 0%, transparent 70%),
+                        radial-gradient(circle at 70% 80%, rgba(255, 107, 107, 0.2) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 5px rgba(255, 107, 107, 0.3)); }
+            to { filter: drop-shadow(0 0 20px rgba(78, 205, 196, 0.3)); }
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .floating-element:nth-child(2) { top: 60%; right: 15%; animation-delay: -2s; }
+        .floating-element:nth-child(3) { bottom: 20%; left: 20%; animation-delay: -4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #ffffff, #a0a0a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+
+        .card p {
+            color: #b0b0b0;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #ff6b6b, #4ecdc4);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+            margin-right: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+            margin-right: 0;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            top: 2rem;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-icon {
+            right: -70px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-icon {
+            left: -70px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4ecdc4;
+            box-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                margin-left: 60px !important;
+                margin-right: 0 !important;
+            }
+
+            .timeline-icon {
+                left: -50px !important;
+                right: auto !important;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
+    <header>
+        <div class="header-bg"></div>
+        <div class="container">
+            <div class="hero">
+                <h1>Web3 Customer Success Specialist</h1>
+                <p>Transforming complex blockchain experiences into seamless user journeys through hands-on expertise and empathetic support</p>
+                <a href="#contact" class="cta-button">Let's Connect</a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Case Studies</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">🌐</div>
+                    <h3>Multi-Ecosystem Expert</h3>
+                    <p>Active across 15+ different web3 projects spanning Telegram gaming, network infrastructure, ICE ecosystem, and pre-launch testnets. This diverse experience provides comprehensive understanding of varied user journeys and challenges.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Early Adopter Advantage</h3>
+                    <p>Consistently identify and participate in promising projects before mainstream adoption. This forward-thinking approach helps anticipate user needs and support challenges in emerging technologies.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">💡</div>
+                    <h3>Portfolio Management Pro</h3>
+                    <p>Successfully manage multiple concurrent projects with different reward mechanisms, timelines, and requirements. Expert at helping users optimize their web3 portfolio for maximum benefits while minimizing risks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Web3 Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">🎮</div>
+                    <h3>Telegram Gaming Ecosystem</h3>
+                    <p><strong>X Empire, Hamster Combat, Dogs, Tomarket</strong></p>
+                    <p>Navigated complex reward systems, referral mechanisms, and social integrations across multiple gaming platforms. Experienced common user challenges like delayed rewards, unclear progression systems, and technical glitches during high-traffic periods.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">💰</div>
+                    <h3>Airdrop Campaigns</h3>
+                    <p><strong>Notcoin, Mnemonics, Dogs, and Multiple Others</strong></p>
+                    <p>Successfully participated in diverse airdrop campaigns across different blockchain networks, learning to troubleshoot wallet connectivity issues, understand varying eligibility criteria, and navigate claiming processes during network congestion.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">🌐</div>
+                    <h3>Network & Infrastructure Projects</h3>
+                    <p><strong>Nodepay, Grass, Hot Wallet</strong></p>
+                    <p>Experience with passive earning mechanisms, browser-based mining, network participation rewards, and wallet-based earning systems. Mastered technical setup challenges, optimization strategies, and troubleshooting connectivity issues.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">❄️</div>
+                    <h3>ICE Network Ecosystem</h3>
+                    <p><strong>ICE, Sauces, Callfluent, Sunwaves</strong></p>
+                    <p>Deep involvement in the ICE ecosystem and related projects, understanding interconnected tokenomics, cross-platform integrations, and managing multiple project participation simultaneously while tracking various reward mechanisms.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">🚀</div>
+                    <h3>Pre-Launch & Testnet Projects</h3>
+                    <p><strong>Bless, Blum, and Ongoing Projects</strong></p>
+                    <p>Currently active in multiple pre-launch projects and testnets, staying ahead of emerging trends and understanding early-stage user experience challenges. Experienced in managing expectations during development phases and beta testing processes.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">🔧</div>
+                    <h3>Continuous Innovation</h3>
+                    <p><strong>15+ Active Projects & Growing</strong></p>
+                    <p>Consistently discovering and participating in emerging web3 projects across multiple ecosystems. Expertise in managing diverse project portfolios, staying current with evolving platforms, and understanding user experience patterns from early beta to mature platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <span class="skill-icon">🔐</span>
+                    <h3>Wallet Management</h3>
+                    <p>MetaMask, Trust Wallet, connection troubleshooting</p>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">⚡</span>
+                    <h3>Transaction Analysis</h3>
+                    <p>Gas fees, failed transactions, blockchain explorers</p>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🎯</span>
+                    <h3>User Onboarding</h3>
+                    <p>Simplifying complex processes, step-by-step guidance</p>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🛠️</span>
+                    <h3>Technical Support</h3>
+                    <p>Debugging, error identification, solution implementation</p>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">💬</span>
+                    <h3>Clear Communication</h3>
+                    <p>Technical translation, empathetic responses</p>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">📊</span>
+                    <h3>Platform Analytics</h3>
+                    <p>Understanding user behavior patterns and pain points</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Case Studies</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Multi-Platform Ecosystem Navigation</h3>
+                    <p><strong>Challenge:</strong> User confused about managing multiple interconnected projects in ICE ecosystem</p>
+                    <p><strong>Solution:</strong> Comprehensive guide for managing Sauces, Callfluent, Sunwaves simultaneously, with optimization strategies and reward tracking systems</p>
+                    <p><strong>Outcome:</strong> Streamlined user experience across ecosystem with maximized earning potential</p>
+                </div>
+                <div class="card">
+                    <h3>Pre-Launch Project Support</h3>
+                    <p><strong>Challenge:</strong> User frustrated with unclear timelines and changing requirements in testnet projects</p>
+                    <p><strong>Solution:</strong> Set proper expectations, create update tracking system, and provide clear communication about development phases</p>
+                    <p><strong>Outcome:</strong> Improved user retention during beta phases and better community engagement</p>
+                </div>
+                <div class="card">
+                    <h3>Network Infrastructure Issues</h3>
+                    <p><strong>Challenge:</strong> User experiencing connectivity problems with Nodepay and similar network-based rewards</p>
+                    <p><strong>Solution:</strong> Detailed troubleshooting guide for network settings, VPN configurations, and optimization for stable connections</p>
+                    <p><strong>Outcome:</strong> Stable earning setup with improved technical understanding</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Build Something Amazing</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Tell me about your customer success needs..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Web3 Customer Success Specialist. Ready to help your users navigate the decentralized future.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const company = formData.get('company');
+            const message = formData.get('message');
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.textContent = 'Message Sent!';
+                submitBtn.style.background = 'linear-gradient(135deg, #4ecdc4, #45b7d1)';
+                
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = 'linear-gradient(135deg, #ff6b6b, #4ecdc4)';
+                    this.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Add scroll-based animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and timeline items
+        document.querySelectorAll('.card, .timeline-item, .skill-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add dynamic particle effect
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'fixed';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = `linear-gradient(135deg, #ff6b6b, #4ecdc4)`;
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.zIndex = '1000';
+            particle.style.opacity = '0.7';
+            
+            const startX = Math.random() * window.innerWidth;
+            const startY = window.innerHeight + 10;
+            
+            particle.style.left = startX + 'px';
+            particle.style.top = startY + 'px';
+            
+            document.body.appendChild(particle);
+            
+            const duration = Math.random() * 3000 + 2000;
+            const endY = -10;
+            const drift = (Math.random() - 0.5) * 100;
+            
+            particle.animate([
+                { transform: `translate(0, 0) scale(1)`, opacity: 0.7 },
+                { transform: `translate(${drift}px, ${endY - startY}px) scale(0)`, opacity: 0 }
+            ], {
+                duration: duration,
+                easing: 'ease-out'
+            }).addEventListener('finish', () => {
+                particle.remove();
+            });
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 500);
+    </script>
+</body>
+</html>
