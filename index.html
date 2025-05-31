@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web3 Customer Success Specialist | Portfolio</title>
+    <title>Web3 Professional | Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -75,6 +75,13 @@
             margin-right: auto;
         }
 
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         .cta-button {
             display: inline-block;
             padding: 15px 30px;
@@ -87,9 +94,19 @@
             box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
         }
 
+        .cta-button.secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #4ecdc4;
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.2);
+        }
+
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+        }
+
+        .cta-button.secondary:hover {
+            box-shadow: 0 15px 40px rgba(78, 205, 196, 0.3);
         }
 
         .floating-elements {
@@ -227,7 +244,7 @@
             font-size: 1.5rem;
         }
 
-        /* Experience Timeline */
+        /* Enhanced Experience Timeline */
         .timeline {
             position: relative;
             max-width: 800px;
@@ -287,32 +304,94 @@
             left: -70px;
         }
 
-        /* Skills Section */
+        .timeline-item .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ecdc4;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(78, 205, 196, 0.3);
+        }
+
+        /* Enhanced Skills Section */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-top: 2rem;
         }
 
-        .skill-item {
+        .skill-category {
             background: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 15px;
-            text-align: center;
+            padding: 2rem;
+            border-radius: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
         }
 
-        .skill-item:hover {
+        .skill-category:hover {
             transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .skill-icon {
-            font-size: 2rem;
+        .skill-category h3 {
+            color: #4ecdc4;
             margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 107, 107, 0.2);
+            color: #ff6b6b;
+            padding: 0.4rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255, 107, 107, 0.3);
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             display: block;
+        }
+
+        .stat-label {
+            color: #a0a0a0;
+            margin-top: 0.5rem;
         }
 
         /* Contact Section */
@@ -338,7 +417,8 @@
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 12px;
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -349,10 +429,16 @@
         }
 
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: #4ecdc4;
             box-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
+        }
+
+        .form-group select option {
+            background: #1a1a3e;
+            color: #ffffff;
         }
 
         .submit-btn {
@@ -365,6 +451,7 @@
             font-size: 1rem;
             font-weight: 600;
             transition: all 0.3s ease;
+            width: 100%;
         }
 
         .submit-btn:hover {
@@ -380,10 +467,41 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            transform: translateY(-3px);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
             }
 
             .timeline::before {
@@ -409,6 +527,10 @@
             .cards-grid {
                 grid-template-columns: 1fr;
             }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
@@ -423,9 +545,12 @@
         <div class="header-bg"></div>
         <div class="container">
             <div class="hero">
-                <h1>Web3 Customer Success Specialist</h1>
-                <p>Transforming complex blockchain experiences into seamless user journeys through hands-on expertise and empathetic support</p>
-                <a href="#contact" class="cta-button">Let's Connect</a>
+                <h1>Web3 Professional</h1>
+                <p>Experienced blockchain enthusiast and community advocate with hands-on expertise across 15+ Web3 ecosystems. Ready to drive adoption, build communities, and solve complex crypto challenges.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="cta-button">Hire Me</a>
+                    <a href="#experience" class="cta-button secondary">View Experience</a>
+                </div>
             </div>
         </div>
     </header>
@@ -436,6 +561,7 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#stats">Impact</a></li>
                 <li><a href="#projects">Case Studies</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -444,22 +570,22 @@
 
     <section id="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title">Why Hire Me</h2>
             <div class="cards-grid">
                 <div class="card">
+                    <div class="card-icon">🚀</div>
+                    <h3>Early Adopter & Trend Spotter</h3>
+                    <p>Consistently identify and participate in promising Web3 projects before mainstream adoption. My track record includes successful early involvement in projects that later became major successes, providing valuable market insight and user perspective.</p>
+                </div>
+                <div class="card">
                     <div class="card-icon">🌐</div>
-                    <h3>Multi-Ecosystem Expert</h3>
-                    <p>Active across 15+ different web3 projects spanning Telegram gaming, network infrastructure, ICE ecosystem, and pre-launch testnets. This diverse experience provides comprehensive understanding of varied user journeys and challenges.</p>
+                    <h3>Multi-Ecosystem Expertise</h3>
+                    <p>Active hands-on experience across 15+ different blockchain ecosystems including DeFi, GameFi, Infrastructure, and Social platforms. This diverse exposure translates to comprehensive understanding of user journeys, pain points, and market dynamics.</p>
                 </div>
                 <div class="card">
                     <div class="card-icon">🎯</div>
-                    <h3>Early Adopter Advantage</h3>
-                    <p>Consistently identify and participate in promising projects before mainstream adoption. This forward-thinking approach helps anticipate user needs and support challenges in emerging technologies.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">💡</div>
-                    <h3>Portfolio Management Pro</h3>
-                    <p>Successfully manage multiple concurrent projects with different reward mechanisms, timelines, and requirements. Expert at helping users optimize their web3 portfolio for maximum benefits while minimizing risks.</p>
+                    <h3>Community & Product Focus</h3>
+                    <p>Proven ability to bridge the gap between complex technology and user needs. Experience ranges from community building and user education to product feedback and market research across various Web3 verticals.</p>
                 </div>
             </div>
         </div>
@@ -467,43 +593,67 @@
 
     <section id="experience">
         <div class="container">
-            <h2 class="section-title">Web3 Journey</h2>
+            <h2 class="section-title">Hands-On Web3 Experience</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-icon">🎮</div>
-                    <h3>Telegram Gaming Ecosystem</h3>
-                    <p><strong>X Empire, Hamster Combat, Dogs, Tomarket</strong></p>
-                    <p>Navigated complex reward systems, referral mechanisms, and social integrations across multiple gaming platforms. Experienced common user challenges like delayed rewards, unclear progression systems, and technical glitches during high-traffic periods.</p>
+                    <h3>GameFi & Social Gaming</h3>
+                    <p><strong>Telegram Gaming Ecosystem Leadership</strong></p>
+                    <p>Successfully navigated and optimized participation across major gaming platforms including X Empire, Hamster Combat, Dogs, and Tomarket. Deep understanding of tokenomics, user retention strategies, and community engagement in gaming environments.</p>
+                    <div class="tags">
+                        <span class="tag">Community Building</span>
+                        <span class="tag">User Acquisition</span>
+                        <span class="tag">Tokenomics</span>
+                        <span class="tag">Social Gaming</span>
+                    </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-icon">💰</div>
-                    <h3>Airdrop Campaigns</h3>
-                    <p><strong>Notcoin, Mnemonics, Dogs, and Multiple Others</strong></p>
-                    <p>Successfully participated in diverse airdrop campaigns across different blockchain networks, learning to troubleshoot wallet connectivity issues, understand varying eligibility criteria, and navigate claiming processes during network congestion.</p>
+                    <div class="timeline-icon">🪂</div>
+                    <h3>Airdrop Strategy & Distribution</h3>
+                    <p><strong>Multi-Chain Airdrop Campaign Expert</strong></p>
+                    <p>Successfully participated in and analyzed 20+ major airdrop campaigns including Notcoin, Mnemonics, Dogs, and others. Expertise in eligibility optimization, distribution mechanics, and community sentiment analysis during token launches.</p>
+                    <div class="tags">
+                        <span class="tag">Token Distribution</span>
+                        <span class="tag">Multi-Chain</span>
+                        <span class="tag">Market Research</span>
+                        <span class="tag">Launch Strategy</span>
+                    </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-icon">🌐</div>
-                    <h3>Network & Infrastructure Projects</h3>
-                    <p><strong>Nodepay, Grass, Hot Wallet</strong></p>
-                    <p>Experience with passive earning mechanisms, browser-based mining, network participation rewards, and wallet-based earning systems. Mastered technical setup challenges, optimization strategies, and troubleshooting connectivity issues.</p>
+                    <div class="timeline-icon">🔗</div>
+                    <h3>Infrastructure & Network Participation</h3>
+                    <p><strong>Decentralized Infrastructure Contributor</strong></p>
+                    <p>Active participant in network infrastructure projects including Nodepay, Grass, and Hot Wallet. Understanding of decentralized network economics, node operations, and passive earning mechanisms in Web3 infrastructure.</p>
+                    <div class="tags">
+                        <span class="tag">Network Effects</span>
+                        <span class="tag">Infrastructure</span>
+                        <span class="tag">Passive Income</span>
+                        <span class="tag">Node Operations</span>
+                    </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-icon">❄️</div>
-                    <h3>ICE Network Ecosystem</h3>
-                    <p><strong>ICE, Sauces, Callfluent, Sunwaves</strong></p>
-                    <p>Deep involvement in the ICE ecosystem and related projects, understanding interconnected tokenomics, cross-platform integrations, and managing multiple project participation simultaneously while tracking various reward mechanisms.</p>
+                    <h3>Ecosystem Integration Specialist</h3>
+                    <p><strong>ICE Network Ecosystem Expert</strong></p>
+                    <p>Deep involvement in interconnected ICE ecosystem projects including Sauces, Callfluent, and Sunwaves. Expertise in managing multi-project portfolios, cross-platform integrations, and ecosystem-wide tokenomics optimization.</p>
+                    <div class="tags">
+                        <span class="tag">Ecosystem Design</span>
+                        <span class="tag">Cross-Platform</span>
+                        <span class="tag">Portfolio Management</span>
+                        <span class="tag">Integration</span>
+                    </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-icon">🚀</div>
-                    <h3>Pre-Launch & Testnet Projects</h3>
-                    <p><strong>Bless, Blum, and Ongoing Projects</strong></p>
-                    <p>Currently active in multiple pre-launch projects and testnets, staying ahead of emerging trends and understanding early-stage user experience challenges. Experienced in managing expectations during development phases and beta testing processes.</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">🔧</div>
-                    <h3>Continuous Innovation</h3>
-                    <p><strong>15+ Active Projects & Growing</strong></p>
-                    <p>Consistently discovering and participating in emerging web3 projects across multiple ecosystems. Expertise in managing diverse project portfolios, staying current with evolving platforms, and understanding user experience patterns from early beta to mature platforms.</p>
+                    <div class="timeline-icon">⚡</div>
+                    <h3>Beta Testing & Product Development</h3>
+                    <p><strong>Pre-Launch Project Specialist</strong></p>
+                    <p>Currently active in multiple pre-launch projects including Bless, Blum, and various testnets. Experienced in providing product feedback, identifying bugs, and helping shape user experience during critical development phases.</p>
+                    <div class="tags">
+                        <span class="tag">Beta Testing</span>
+                        <span class="tag">Product Feedback</span>
+                        <span class="tag">UX Research</span>
+                        <span class="tag">Quality Assurance</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -511,37 +661,75 @@
 
     <section id="skills">
         <div class="container">
-            <h2 class="section-title">Core Competencies</h2>
+            <h2 class="section-title">Technical & Professional Skills</h2>
             <div class="skills-grid">
-                <div class="skill-item">
-                    <span class="skill-icon">🔐</span>
-                    <h3>Wallet Management</h3>
-                    <p>MetaMask, Trust Wallet, connection troubleshooting</p>
+                <div class="skill-category">
+                    <h3>🔐 Blockchain & DeFi</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Wallet Management</span>
+                        <span class="skill-tag">Smart Contracts</span>
+                        <span class="skill-tag">DeFi Protocols</span>
+                        <span class="skill-tag">Cross-Chain</span>
+                        <span class="skill-tag">Yield Farming</span>
+                        <span class="skill-tag">Liquidity Mining</span>
+                    </div>
                 </div>
-                <div class="skill-item">
-                    <span class="skill-icon">⚡</span>
-                    <h3>Transaction Analysis</h3>
-                    <p>Gas fees, failed transactions, blockchain explorers</p>
+                <div class="skill-category">
+                    <h3>💼 Business & Strategy</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Tokenomics Design</span>
+                        <span class="skill-tag">Market Research</span>
+                        <span class="skill-tag">Community Strategy</span>
+                        <span class="skill-tag">Partnership Development</span>
+                        <span class="skill-tag">Go-to-Market</span>
+                        <span class="skill-tag">Product Strategy</span>
+                    </div>
                 </div>
-                <div class="skill-item">
-                    <span class="skill-icon">🎯</span>
-                    <h3>User Onboarding</h3>
-                    <p>Simplifying complex processes, step-by-step guidance</p>
+                <div class="skill-category">
+                    <h3>👥 Community & Growth</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Community Building</span>
+                        <span class="skill-tag">Social Media</span>
+                        <span class="skill-tag">Content Creation</span>
+                        <span class="skill-tag">Event Management</span>
+                        <span class="skill-tag">User Education</span>
+                        <span class="skill-tag">Ambassador Programs</span>
+                    </div>
                 </div>
-                <div class="skill-item">
-                    <span class="skill-icon">🛠️</span>
-                    <h3>Technical Support</h3>
-                    <p>Debugging, error identification, solution implementation</p>
+                <div class="skill-category">
+                    <h3>🛠️ Technical Operations</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Beta Testing</span>
+                        <span class="skill-tag">Bug Reporting</span>
+                        <span class="skill-tag">User Research</span>
+                        <span class="skill-tag">Data Analysis</span>
+                        <span class="skill-tag">Documentation</span>
+                        <span class="skill-tag">Quality Assurance</span>
+                    </div>
                 </div>
-                <div class="skill-item">
-                    <span class="skill-icon">💬</span>
-                    <h3>Clear Communication</h3>
-                    <p>Technical translation, empathetic responses</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats">
+        <div class="container">
+            <h2 class="section-title">Impact & Experience</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <p class="stat-label">Active Web3 Projects</p>
                 </div>
-                <div class="skill-item">
-                    <span class="skill-icon">📊</span>
-                    <h3>Platform Analytics</h3>
-                    <p>Understanding user behavior patterns and pain points</p>
+                <div class="stat-item">
+                    <span class="stat-number">20+</span>
+                    <p class="stat-label">Successful Airdrops</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5+</span>
+                    <p class="stat-label">Ecosystems Mastered</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <p class="stat-label">Market Monitoring</p>
                 </div>
             </div>
         </div>
@@ -549,25 +737,25 @@
 
     <section id="projects">
         <div class="container">
-            <h2 class="section-title">Case Studies</h2>
+            <h2 class="section-title">Case Studies & Solutions</h2>
             <div class="cards-grid">
                 <div class="card">
-                    <h3>Multi-Platform Ecosystem Navigation</h3>
-                    <p><strong>Challenge:</strong> User confused about managing multiple interconnected projects in ICE ecosystem</p>
-                    <p><strong>Solution:</strong> Comprehensive guide for managing Sauces, Callfluent, Sunwaves simultaneously, with optimization strategies and reward tracking systems</p>
-                    <p><strong>Outcome:</strong> Streamlined user experience across ecosystem with maximized earning potential</p>
+                    <h3>Multi-Ecosystem Portfolio Optimization</h3>
+                    <p><strong>Challenge:</strong> Managing complex multi-project participation across different blockchain ecosystems with varying reward mechanisms and timelines.</p>
+                    <p><strong>Solution:</strong> Developed systematic approach to portfolio management, risk assessment, and opportunity prioritization across 15+ concurrent projects.</p>
+                    <p><strong>Impact:</strong> Maximized rewards while minimizing time investment and reducing exposure to failed projects.</p>
                 </div>
                 <div class="card">
-                    <h3>Pre-Launch Project Support</h3>
-                    <p><strong>Challenge:</strong> User frustrated with unclear timelines and changing requirements in testnet projects</p>
-                    <p><strong>Solution:</strong> Set proper expectations, create update tracking system, and provide clear communication about development phases</p>
-                    <p><strong>Outcome:</strong> Improved user retention during beta phases and better community engagement</p>
+                    <h3>Early Stage Project Evaluation</h3>
+                    <p><strong>Challenge:</strong> Identifying promising pre-launch projects in a crowded market with high failure rates.</p>
+                    <p><strong>Solution:</strong> Created evaluation framework focusing on team credentials, tokenomics sustainability, and market fit analysis.</p>
+                    <p><strong>Impact:</strong> Successfully identified multiple projects that later achieved significant success and user adoption.</p>
                 </div>
                 <div class="card">
-                    <h3>Network Infrastructure Issues</h3>
-                    <p><strong>Challenge:</strong> User experiencing connectivity problems with Nodepay and similar network-based rewards</p>
-                    <p><strong>Solution:</strong> Detailed troubleshooting guide for network settings, VPN configurations, and optimization for stable connections</p>
-                    <p><strong>Outcome:</strong> Stable earning setup with improved technical understanding</p>
+                    <h3>Community Onboarding & Education</h3>
+                    <p><strong>Challenge:</strong> High complexity barriers preventing mainstream users from participating in Web3 opportunities.</p>
+                    <p><strong>Solution:</strong> Developed simplified guides, educational content, and step-by-step onboarding processes for various platforms.</p>
+                    <p><strong>Impact:</strong> Reduced user onboarding time and improved success rates for new Web3 participants.</p>
                 </div>
             </div>
         </div>
@@ -575,7 +763,7 @@
 
     <section id="contact">
         <div class="container">
-            <h2 class="section-title">Let's Build Something Amazing</h2>
+            <h2 class="section-title">Ready to Collaborate</h2>
             <form class="contact-form">
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -586,126 +774,24 @@
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="company">Company</label>
+                    <label for="company">Company/Project</label>
                     <input type="text" id="company" name="company">
                 </div>
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" placeholder="Tell me about your customer success needs..."></textarea>
+                    <label for="role">Role/Opportunity</label>
+                    <select id="role" name="role">
+                        <option value="">Select opportunity type</option>
+                        <option value="community">Community Management</option>
+                        <option value="product">Product Development</option>
+                        <option value="marketing">Marketing & Growth</option>
+                        <option value="strategy">Strategic Consulting</option>
+                        <option value="partnerships">Business Development</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Project Details</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Tell me about your project and how I can contribute..."></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Web3 Customer Success Specialist. Ready to help your users navigate the decentralized future.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Form submission handler
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const company = formData.get('company');
-            const message = formData.get('message');
-            
-            // Simulate form submission
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                submitBtn.textContent = 'Message Sent!';
-                submitBtn.style.background = 'linear-gradient(135deg, #4ecdc4, #45b7d1)';
-                
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.background = 'linear-gradient(135deg, #ff6b6b, #4ecdc4)';
-                    this.reset();
-                }, 2000);
-            }, 1500);
-        });
-
-        // Add scroll-based animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards and timeline items
-        document.querySelectorAll('.card, .timeline-item, .skill-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // Add dynamic particle effect
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.style.position = 'fixed';
-            particle.style.width = '4px';
-            particle.style.height = '4px';
-            particle.style.background = `linear-gradient(135deg, #ff6b6b, #4ecdc4)`;
-            particle.style.borderRadius = '50%';
-            particle.style.pointerEvents = 'none';
-            particle.style.zIndex = '1000';
-            particle.style.opacity = '0.7';
-            
-            const startX = Math.random() * window.innerWidth;
-            const startY = window.innerHeight + 10;
-            
-            particle.style.left = startX + 'px';
-            particle.style.top = startY + 'px';
-            
-            document.body.appendChild(particle);
-            
-            const duration = Math.random() * 3000 + 2000;
-            const endY = -10;
-            const drift = (Math.random() - 0.5) * 100;
-            
-            particle.animate([
-                { transform: `translate(0, 0) scale(1)`, opacity: 0.7 },
-                { transform: `translate(${drift}px, ${endY - startY}px) scale(0)`, opacity: 0 }
-            ], {
-                duration: duration,
-                easing: 'ease-out'
-            }).addEventListener('finish', () => {
-                particle.remove();
-            });
-        }
-
-        // Create particles periodically
-        setInterval(createParticle, 500);
-    </script>
-</body>
-</html>
